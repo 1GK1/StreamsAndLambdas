@@ -1,10 +1,11 @@
-package sample;
+package javafx;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -46,11 +47,6 @@ public class Click extends Application {
         buttonSub.setOnAction(e -> labelCounter.setText(String.valueOf(--counter)));
         buttonAdd.setOnAction(e -> buttonAddClick());
 
-//        buttonAdd.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                labelCounter.setText(String.valueOf(++counter));
-//            }});
 
 
         Handler handler = new Handler();
@@ -64,16 +60,10 @@ public class Click extends Application {
         });
 
 
-//FlowPane
-        FlowPane flowPane = new FlowPane(10, 10, crazyWay, buttonAdd2, buttonAdd, buttonSub, labelCounter);
-        flowPane.setAlignment(Pos.BOTTOM_LEFT);
+
+        FlowPane flowPane = new FlowPane(Orientation.HORIZONTAL, 10, 10, crazyWay, buttonAdd2, buttonAdd, buttonSub, labelCounter);
         flowPane.setPadding(new Insets(20));
-//        flowPane.setAlignment(Pos.CENTER);
-
-
-//        // VBox
-//        VBox vBox = new VBox()
-
+        flowPane.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(flowPane);
         primaryStage.setScene(scene);
